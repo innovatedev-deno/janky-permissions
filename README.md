@@ -41,7 +41,7 @@ You would opt into using this simplified model as there are some scenarios you m
 > If this script ever changed to do something you don't want, you wouldn't have the benefit of Deno's security as you would have bypassed it all.
 
 ```bash
-deno run --allow-read=deno.jsonc --allow-run=$HOME/.dneo/bin/deno --allow-net=deno.land --allow-env=HOME https://raw.githubusercontent.com/innovatedev-deno/janky-permissions/main/mod.ts main.ts
+deno run --allow-read=deno.jsonc --allow-run=$HOME/.deno/bin/deno --allow-net=deno.land --allow-env=HOME https://raw.githubusercontent.com/innovatedev-deno/janky-permissions/main/mod.ts main.ts
 ```
 
 Even with the warning, and providing the fully expanded version, I bet there will be someone that still uses this with `-A` instead. Litterally a script that's only purpose is to get people to stop using `-A` with deno. That is the problem with where things are at right now.
