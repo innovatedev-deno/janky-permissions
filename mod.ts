@@ -1,6 +1,6 @@
 import { parse } from "https://deno.land/std@0.193.0/jsonc/mod.ts";
 
-const key = Deno.args.find((arg) => arg.endsWith(".ts"));
+const key = (Deno.args.find((arg) => arg.startsWith('--permissions-key=') ?? arg.endsWith(".ts"))).split("=").reverse()[0];
 
 function getPermissionsFromManifest(manifestPath?: string) {
   for (
