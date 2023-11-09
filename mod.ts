@@ -44,7 +44,6 @@ const makePermissionString = (
   permission: string,
   value: string[] | null | boolean,
 ) => {
-  console.log(value);
   return `--allow-${permission}${
     value && value !== true
       ? `=${
