@@ -1,4 +1,4 @@
-import { parse } from "https://deno.land/std@0.193.0/jsonc/mod.ts";
+import { parse } from "https://deno.land/std/jsonc/mod.ts";
 
 const key = Deno.args.find((arg) => arg.endsWith(".ts"));
 
@@ -135,10 +135,10 @@ for (const [permission, value] of perms) {
   fullPermissionStrings.push(makePermissionString(permission, value));
 }
 
-if (!import.meta.main) {
-  console.log("\nfull permissions string\n");
-  console.log(fullPermissionStrings.join(" "));
+console.log("\nfull permissions string\n");
+console.log(fullPermissionStrings.join(" "));
 
+if (!import.meta.main) {
   if (missingPermission) {
     console.log("\nMissing permissions:\n");
     console.log(missingPermissionStrings.join("\n"));
@@ -151,7 +151,7 @@ if (!import.meta.main) {
     ...fullPermissionStrings,
     ...Deno.args,
   ];
-  console.log(args);
+  console.log("running child process: ", args);
   const command = new Deno.Command(`${Deno.env.get("HOME")}/.deno/bin/deno`, {
     args,
   });
