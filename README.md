@@ -87,7 +87,8 @@ This is an example for Fresh. Even fresh which is maintained by the Deno team us
       ],
       "write": [
         "///<cache_path>/fresh",
-        "fresh.gen.ts"
+        "fresh.gen.ts",
+        "_fresh/"
       ],
       "env": true,
       "net": [
@@ -142,4 +143,20 @@ import config from "./fresh.config.ts";
 import "$std/dotenv/load.ts";
 
 await dev(import.meta.url, "./main.ts", config);
+```
+
+Example run
+
+```bash
+deno run dev.ts build --permissions-key=dev.ts
+```
+
+Which would output something like this:
+
+```bash
+Found permissions manifest: deno.jsonc
+
+full permissions string
+
+--allow-read=.,/home/user/.cache/fresh/latest.json,/home/user/.cache/esbuild/bin/@esbuild-linux-x64@0.19.4,/home/user/.deno/bin/deno --allow-run=/home/user/.cache/esbuild/bin/@esbuild-linux-x64@0.19.4,/home/user/.deno/bin/deno --allow-write=/home/user/.cache/fresh,fresh.gen.ts,_fresh/ --allow-env --allow-net=0.0.0.0:8000,deno.land,esm.sh,registry.npmjs.org,dl.deno.land
 ```
