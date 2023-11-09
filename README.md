@@ -57,7 +57,7 @@ Locations searched in order:
 
 # Example
 
-This is an example for Fresh. Even fresh which is maintained by the Deno team uses `-A` - and creating a manifest for the permissions it needs, it is understandable why. This makes it a great case study for how to improve things. Fresh could ship with a `permissions.json` file that declared the permissions needed for each entry point and rather than recommending insecure defaults, `-A`. Then we can start mitigating the risks that deno developers are being conditioned to accept.
+This is an example for Fresh. Even fresh which is maintained by the Deno team uses `-A` While creating a manifest for the permissions it needs for testing this idea out, it is understandable why. This makes it a great case study for how to improve things. Fresh could ship with a `permissions.json` file that declared the permissions needed for each entry point (main.ts and dev.ts) and rather than recommending insecure defaults, `-A`, we could do something like this. Then we can start mitigating the risks that deno developers are being conditioned to accept.
 
 ```json
 {
