@@ -40,9 +40,13 @@ if (!permissions) {
   Deno.exit(1);
 }
 
-const makePermissionString = (permission: string, value: string[]) => {
+const makePermissionString = (
+  permission: string,
+  value: string[] | null | boolean,
+) => {
+  console.log(value);
   return `--allow-${permission}${
-    value
+    value && value !== true
       ? `=${
         (Array.isArray(value) ? value : [value]).map((v: string) => {
           v = v === "///<exec_path>"
@@ -75,7 +79,7 @@ for (const [permission, value] of perms) {
 
   if (!permission) continue;
   if (!import.meta.main) {
-    if (!value) {
+    if (!value || value === true) {
       hasPermission =
         (Deno.permissions.querySync({ name: permission })).state ===
           "granted";
