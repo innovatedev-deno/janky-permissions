@@ -1,4 +1,4 @@
-import { parse } from "https://deno.land/std/jsonc/mod.ts";
+import { parse } from "https://deno.land/std@0.193.0/jsonc/mod.ts";
 
 const key = Deno.args.find((arg) => arg.endsWith(".ts"));
 
